@@ -1,0 +1,30 @@
+:root{
+  /* ---- COLOUR: edit these hex codes to change the whole site ---- */
+  --paper:#EFEEE9;          /* page background */
+  --paper-deep:#E6E4DD;     /* panels */
+  --ink:#1B1815;            /* main text */
+  --muted:#5F5A52;          /* secondary text */
+  --rule:#CBC8BF;           /* hairlines */
+
+  --artist:#7C9AB4;         /* ESTABLISHED ARTISTS pathway: markers, bars, blocks */
+  --artist-ink:#3C5B76;     /* darker blue for text and links (passes contrast) */
+  --institution:#4E3328;    /* INSTITUTIONS pathway: markers, bars, text, links */
+
+  /* ---- FONTS ---- */
+  --font-display:"Instrument Serif","Times New Roman",Georgia,serif;
+  --font-body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-meta:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+
+  /* ---- SIZES ---- */
+  --size-body:1.0625rem;
+  --size-small:.875rem;
+  --size-meta:.72rem;
+  --size-lead:clamp(1.2rem,1.1rem + .5vw,1.5rem);
+  --size-h3:clamp(1.5rem,1.3rem + .8vw,2rem);
+  --size-h2:clamp(2rem,1.4rem + 2.6vw,3.6rem);
+  --size-h1:clamp(2.8rem,1.2rem + 7vw,7.5rem);
+
+  --wrap:1360px;
+  --gutter:clamp(1.25rem,4vw,3rem);
+  --section:clamp(4rem,9vw,8rem);
+}
