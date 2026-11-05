@@ -40,14 +40,10 @@
   }
 
   function footer() {
-    var soc = (S.social || []).filter(function (s) { return s.href; }).map(function (s) {
-      return '<li><a href="' + esc(s.href) + '" rel="noopener">' + esc(s.label) + "</a></li>";
-    }).join("");
     var phone = S.phone ? '<li><a href="tel:' + esc(S.phone.replace(/\s/g, "")) + '">' + esc(S.phone) + "</a></li>" : "";
     return '<footer class="site-footer"><div class="wrap foot"><div><p class="label">' + esc(S.name) + "</p><p>" + t(S.footerLine) +
       '</p></div><div><p class="label">Contact</p><ul><li><a href="mailto:' + esc(S.email) + '">' + esc(S.email) + "</a></li>" + phone +
-      "<li>" + esc(S.location) + "</li></ul></div><div><p class=\"label\">Elsewhere</p><ul>" + (soc || "<li>—</li>") +
-      '</ul><p style="margin-top:1.5rem">© ' + new Date().getFullYear() + " " + esc(S.copyright) + "</p></div></div></footer>";
+      "<li>" + esc(S.location) + '</li></ul></div><div><p>© ' + new Date().getFullYear() + " " + esc(S.copyright) + "</p></div></div></footer>";
   }
 
   function pageHero(h) {
@@ -69,23 +65,23 @@
   }
 
   function project(p, i, full) {
-    var img = p.image
-      ? '<figure class="ph"><img src="' + esc(p.image) + '" alt="' + esc(p.imageAlt || p.title) + '" loading="lazy"></figure>'
-      : '<div class="ph ph--empty" role="img" aria-label="Image to come"><span>' + num(i) + "</span></div>";
-    var draft = p.placeholder ? '<span class="draft">Draft</span>' : "";
-    var metaBits = [p.category, p.year].filter(Boolean).map(esc).join(" · ");
-    if (!full) {
-      return '<article class="proj reveal">' + img + '<p class="meta">' + metaBits + draft + "</p><h3>" + t(p.title) + "</h3>" +
-        (p.client ? '<p class="meta">' + esc(p.client) + "</p>" : "") + "</article>";
-    }
-    var facts = [["Client / institution", p.client], ["My role", p.role], ["Context", p.context], ["Scope of work", p.scope], ["Outcomes", p.outcomes]]
-      .filter(function (f) { return f[1]; })
-      .map(function (f) { return "<dt>" + f[0] + "</dt><dd>" + t(f[1]) + "</dd>"; }).join("");
-    var gal = (p.images || []).length ? '<div class="gallery">' + p.images.map(function (src) {
-      return '<img src="' + esc(src) + '" alt="" loading="lazy">'; }).join("") + "</div>" : "";
-    var link = p.link ? '<p><a class="textlink" href="' + esc(p.link) + '" rel="noopener">View project</a></p>' : "";
-    return '<article class="proj proj--full reveal">' + img + '<div class="body"><p class="meta">' + metaBits + draft + "</p><h2 class=\"h2\" style=\"font-size:var(--size-h2);margin:.5rem 0 0\">" +
-      t(p.title) + "</h2>" + (facts ? '<dl class="facts">' + facts + "</dl>" : "") + gal + link + "</div></article>";
+    var meta = [p.year, p.category].filter(Boolean).map(esc).join(" · ");
+    var body = (p.body || []).map(function (block) {
+      if (block.type === "list") return '<ul class="project-list">' + block.items.map(function (item) { return "<li>" + t(item) + "</li>"; }).join("") + "</ul>";
+      if (block.type === "heading") return '<h3 class="project-subheading">' + t(block.text) + "</h3>";
+      return "<p>" + t(block.text) + "</p>";
+    }).join("");
+    var links = (p.links || []).map(function (link) {
+      return '<li><a class="textlink" href="' + esc(link.href) + '" rel="noopener">' + esc(link.label) + "</a></li>";
+    }).join("");
+    var content = (p.role ? '<p class="project-role">' + t(p.role) + "</p>" : "") +
+      (p.skills ? '<p class="meta project-skills">' + t(p.skills) + "</p>" : "") + body +
+      (links ? '<ul class="project-links">' + links + "</ul>" : "");
+    if (!full) return '<details class="project-dropdown reveal"><summary><span class="n">' + num(i) +
+      '</span><span><span class="meta">' + meta + '</span><span class="project-title">' + t(p.title) +
+      '</span></span><span class="project-toggle" aria-hidden="true">+</span></summary><div class="project-content">' + content + "</div></details>";
+    return '<article class="project-story reveal"><header><p class="meta">' + num(i) + ' / ' + meta +
+      '</p><h2 class="h2">' + t(p.title) + '</h2></header><div class="project-content">' + content + "</div></article>";
   }
 
   /* ---------- pages ---------- */
@@ -121,7 +117,7 @@
         var w = H.work, items = C.projects.items.slice(0, w.howMany || 3);
         if (!items.length) return "";
         return '<section><div class="wrap"><div class="grid" style="margin-bottom:3rem"><div class="col-label"><p class="label">' + t(w.label) +
-          '</p></div><div class="col-main"><p class="lead">' + t(w.intro) + '</p></div></div><div class="projects">' +
+          '</p></div><div class="col-main"><p class="lead">' + t(w.intro) + '</p></div></div><div class="project-dropdowns">' +
           items.map(function (p, i) { return project(p, i, false); }).join("") +
           '</div><p style="margin-top:2.5rem"><a class="textlink" href="work.html">' + t(w.link) + "</a></p></div></section>";
       },
@@ -140,8 +136,6 @@
       var P = C[key];
       return pageHero(P.hero) +
         '<section><div class="wrap"><p class="label">' + t(P.situationsLabel) + "</p>" + rowsList(P.situations.map(function (x) { return { title: x.title, text: x.text }; })) + "</div></section>" +
-        '<section><div class="wrap grid"><div class="col-label"><p class="label">' + t(P.capabilitiesLabel) + '</p></div><div class="col-main reveal"><ul class="tags">' +
-        P.capabilities.map(function (c) { return "<li>" + t(c) + "</li>"; }).join("") + "</ul></div></div></section>" +
         '<section class="stance"><div class="wrap grid"><div class="col-label"><p class="label">' + t(P.stance.label) + '</p></div><div class="col-main reveal"><p class="statement">' + t(P.stance.text) + "</p></div></div></section>" +
         '<section><div class="wrap grid"><div class="col-label"><p class="label">' + t(P.engagement.label) + '</p></div><div class="col-main reveal"><p class="lead" style="margin-bottom:2rem">' + t(P.engagement.text) +
         '</p><ul class="plain">' + P.engagement.forms.map(function (f) { return "<li>" + t(f) + "</li>"; }).join("") + "</ul></div></div></section>" +
@@ -162,7 +156,7 @@
       '<section><div class="wrap grid"><div class="col-label"><p class="label">' + t(A.understandsLabel) + '</p></div><div class="col-main"><ul class="plain reveal">' +
       A.understands.map(function (x) { return "<li>" + t(x) + "</li>"; }).join("") + "</ul></div></div></section>" +
       '<section><div class="wrap grid"><div class="col-label"></div><div class="col-main">' +
-      list(A.educationLabel, A.education.map(function (e) { return "<strong>" + esc(e.title) + "</strong>" + (e.detail ? "<br>" + esc(e.detail) : ""); }).map(function (h) { return h; }), "") +
+      list(A.educationLabel, A.education.map(function (e) { return e.title + (e.detail ? " — " + e.detail : ""); })) +
       list(A.experienceLabel, A.experience) +
       '<div class="reveal"><p class="label">' + t(A.organisationsLabel) + "</p><p>" + t(A.organisationsNote) + '</p><ul class="tags">' +
       A.organisations.map(function (o) { return "<li>" + t(o) + "</li>"; }).join("") + "</ul></div></div></div></section>" +
@@ -171,7 +165,7 @@
 
   pages.work = function () {
     var P = C.projects;
-    return pageHero(P.hero) + '<section style="border-top:0;padding-top:0"><div class="wrap"><div class="projects projects--full">' +
+    return pageHero(P.hero) + '<section style="border-top:0;padding-top:0"><div class="wrap"><div class="project-stories">' +
       P.items.map(function (p, i) { return project(p, i, true); }).join("") + "</div></div></section>" +
       cta(C.home.cta, "");
   };
