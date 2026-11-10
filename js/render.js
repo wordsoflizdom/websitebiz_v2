@@ -110,13 +110,13 @@
       },
       territories: function () {
         var x = H.territories;
-        return '<section><div class="wrap"><div class="grid"><div class="col-label"><p class="label">' + t(x.label) + '</p></div><div class="col-main"><p class="lead reveal" style="margin-bottom:3rem">' +
-          t(x.intro) + "</p></div></div>" + rowsList(x.items) + "</div></section>";
+        return '<section><div class="wrap"><p class="lead reveal" style="max-width:none;text-align:center;margin:0 0 3rem">' +
+          t(x.intro).replace(". ", ".<br>") + "</p>" + rowsList(x.items) + "</div></section>";
       },
       work: function () {
         var w = H.work, items = C.projects.items.slice(0, w.howMany || 3);
         if (!items.length) return "";
-        return '<section><div class="wrap"><div class="grid" style="margin-bottom:3rem"><div class="col-label"><p class="label">' + t(w.label) +
+        return '<section style="border-top:0"><div class="wrap"><div class="grid" style="margin-bottom:3rem"><div class="col-label"><p class="label">' + t(w.label) +
           '</p></div><div class="col-main"><p class="lead">' + t(w.intro) + '</p></div></div><div class="project-dropdowns">' +
           items.map(function (p, i) { return project(p, i, false); }).join("") +
           '</div><p style="margin-top:2.5rem"><a class="textlink" href="work.html">' + t(w.link) + "</a></p></div></section>";
