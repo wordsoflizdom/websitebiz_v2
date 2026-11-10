@@ -153,7 +153,7 @@ form.enq{display:grid;gap:1.5rem;max-width:720px}
 .nav a[data-page="contact"]:hover,.nav a[data-page="contact"]:focus-visible,.nav a[data-page="contact"][aria-current]{border-color:var(--artist)}
 .nav a[data-page="about"]:hover,.nav a[data-page="about"]:focus-visible,.nav a[data-page="about"][aria-current]{border-color:var(--institution)}
 a.textlink[href="contact.html"]:hover{color:var(--artist-ink);border-color:var(--artist)}
-a.textlink[href="work.html"]:hover,a.textlink[href="work.html"]:focus-visible{color:var(--artist);border-color:var(--artist)}
+a.textlink[href="work.html"]:hover,a.textlink[href="work.html"]:focus-visible{color:var(--institution);border-color:var(--institution)}
 a.textlink[href="about.html"]:hover,a.textlink[href="about.html"]:focus-visible{color:var(--artist);border-color:var(--artist)}
 .project-dropdown{border-top:1px solid var(--rule)}
 .project-dropdown:last-child{border-bottom:1px solid var(--rule)}
