@@ -157,9 +157,7 @@
       A.understands.map(function (x) { return "<li>" + t(x) + "</li>"; }).join("") + "</ul></div></div></section>" +
       '<section><div class="wrap grid"><div class="col-label"></div><div class="col-main">' +
       list(A.educationLabel, A.education.map(function (e) { return e.title + (e.detail ? " — " + e.detail : ""); })) +
-      list(A.experienceLabel, A.experience) +
-      '<div class="reveal"><p class="label">' + t(A.organisationsLabel) + "</p><p>" + t(A.organisationsNote) + '</p><ul class="tags">' +
-      A.organisations.map(function (o) { return "<li>" + t(o) + "</li>"; }).join("") + "</ul></div></div></div></section>" +
+      list(A.experienceLabel, A.experience) + "</div></div></section>" +
       cta(A.cta, "");
   };
 
