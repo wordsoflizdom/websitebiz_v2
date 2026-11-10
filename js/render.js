@@ -77,7 +77,7 @@
     var content = (p.role ? '<p class="project-role">' + t(p.role) + "</p>" : "") +
       (p.skills ? '<p class="meta project-skills">' + t(p.skills) + "</p>" : "") + body +
       (links ? '<ul class="project-links">' + links + "</ul>" : "");
-    if (!full) return '<details class="project-dropdown reveal"><summary><span class="n">' + num(i) +
+    if (!full) return '<details class="project-dropdown reveal" data-hover-theme="' + esc(p.hoverTheme || "institutions") + '"><summary><span class="n">' + num(i) +
       '</span><span><span class="meta">' + meta + '</span><span class="project-title">' + t(p.title) +
       '</span></span><span class="project-toggle" aria-hidden="true">+</span></summary><div class="project-content">' + content + "</div></details>";
     return '<article class="project-story reveal"><header><p class="meta">' + num(i) + ' / ' + meta +
