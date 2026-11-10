@@ -12,7 +12,7 @@ CONTENT.home = {
     },
     {
       "id": "problem",
-      "show": true
+      "show": false
     },
     {
       "id": "territories",
