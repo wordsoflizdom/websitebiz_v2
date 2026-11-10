@@ -110,7 +110,7 @@
       },
       territories: function () {
         var x = H.territories;
-        return '<section><div class="wrap"><p class="lead reveal" style="max-width:none;text-align:center;margin:0 0 3rem">' +
+        return '<section style="padding-bottom:0"><div class="wrap"><p class="lead reveal" style="max-width:none;text-align:center;margin:0 0 3rem">' +
           t(x.intro).replace(". ", ".<br>") + "</p>" + rowsList(x.items) + "</div></section>";
       },
       work: function () {
