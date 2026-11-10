@@ -12,7 +12,7 @@ CONTENT.projects = {
   },
   "items": [
     {
-      "title": "*Attention After Technology*",
+      "title": "Attention After Technology",
       "hoverTheme": "institutions",
       "year": "2022–2024",
       "category": "International cultural collaboration",
@@ -56,7 +56,7 @@ CONTENT.projects = {
       ]
     },
     {
-      "title": "*More Meat Less Meat*",
+      "title": "More Meat Less Meat",
       "hoverTheme": "artists",
       "year": "2022–2023",
       "category": "Exhibition production and artistic research",
@@ -265,7 +265,7 @@ CONTENT.projects = {
         },
         {
           "type": "heading",
-          "text": "ABSA: *The Security Maze* · 2018"
+          "text": "ABSA: The Security Maze · 2018"
         },
         {
           "type": "paragraph",
