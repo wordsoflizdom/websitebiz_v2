@@ -12,7 +12,8 @@ CONTENT.projects = {
   },
   "items": [
     {
-      "title": "Attention After Technology",
+      "title": "*Attention After Technology*",
+      "hoverTheme": "institutions",
       "year": "2022–2024",
       "category": "International cultural collaboration",
       "role": "Role: Project Manager",
@@ -20,7 +21,7 @@ CONTENT.projects = {
       "body": [
         {
           "type": "paragraph",
-          "text": "A two-year collaboration across exhibitions, artist residencies, a symposium and an online platform, Attention After Technology explored the relationships between algorithms, attention and social justice."
+          "text": "A two-year collaboration across exhibitions, artist residencies, a symposium and an online platform, *Attention After Technology* explored the relationships between algorithms, attention and social justice."
         },
         {
           "type": "paragraph",
@@ -55,7 +56,8 @@ CONTENT.projects = {
       ]
     },
     {
-      "title": "More Meat Less Meat",
+      "title": "*More Meat Less Meat*",
+      "hoverTheme": "artists",
       "year": "2022–2023",
       "category": "Exhibition production and artistic research",
       "role": "Role: Project Manager & Producer",
@@ -63,7 +65,7 @@ CONTENT.projects = {
       "body": [
         {
           "type": "paragraph",
-          "text": "More Meat Less Meat brought artistic experimentation and food research into a public exhibition at Trondheim Kunstmuseum’s TKM Gråmølna in 2023. Featuring the Center for Genomic Gastronomy and Chicks on Speed, it invited audiences to explore possible food futures through multisensory artworks."
+          "text": "*More Meat Less Meat* brought artistic experimentation and food research into a public exhibition at Trondheim Kunstmuseum’s TKM Gråmølna in 2023. Featuring the Center for Genomic Gastronomy and Chicks on Speed, it invited audiences to explore possible food futures through multisensory artworks."
         },
         {
           "type": "paragraph",
@@ -88,13 +90,14 @@ CONTENT.projects = {
           "href": "https://moremeatlessmeat.com/MORE-MEAT-LESS-MEAT-SHOW"
         },
         {
-          "label": "Trondheim Kunstmuseum exhibition page",
-          "href": "https://trondheimkunstmuseum.no/en/more-meat-less-meat"
+          "label": "MEATigation",
+          "href": "https://meatigation.no/"
         }
       ]
     },
     {
       "title": "Selected Grant & Application Work",
+      "hoverTheme": "institutions",
       "year": "2025–ongoing",
       "category": "Music, moving image and collaborative research",
       "role": "Role: Grant & Application Development",
@@ -262,11 +265,11 @@ CONTENT.projects = {
         },
         {
           "type": "heading",
-          "text": "ABSA: The Security Maze · 2018"
+          "text": "ABSA: *The Security Maze* · 2018"
         },
         {
           "type": "paragraph",
-          "text": "For ABSA’s Converged Security Office, I worked on exhibition conceptualisation, design and project management. The Security Maze used experience design to bring cybersecurity issues into focus and encourage employees to consider their own behaviours."
+          "text": "For ABSA’s Converged Security Office, I worked on exhibition conceptualisation, design and project management. *The Security Maze* used experience design to bring cybersecurity issues into focus and encourage employees to consider their own behaviours."
         },
         {
           "type": "paragraph",
