@@ -153,13 +153,13 @@ form.enq{display:grid;gap:1.5rem;max-width:720px}
 .nav a[data-page="contact"]:hover,.nav a[data-page="contact"]:focus-visible,.nav a[data-page="contact"][aria-current]{border-color:var(--artist)}
 .nav a[data-page="about"]:hover,.nav a[data-page="about"]:focus-visible,.nav a[data-page="about"][aria-current]{border-color:var(--institution)}
 a.textlink[href="contact.html"]:hover{color:var(--artist-ink);border-color:var(--artist)}
-a.textlink[href="work.html"]:hover,a.textlink[href="work.html"]:focus-visible{color:var(--institution);border-color:var(--institution)}
+a.textlink[href="work.html"]:hover,a.textlink[href="work.html"]:focus-visible{color:var(--artist);border-color:var(--artist)}
 a.textlink[href="about.html"]:hover,a.textlink[href="about.html"]:focus-visible{color:var(--artist);border-color:var(--artist)}
 .project-dropdown{border-top:1px solid var(--rule)}
 .project-dropdown:last-child{border-bottom:1px solid var(--rule)}
 .project-dropdown summary{display:grid;grid-template-columns:3rem minmax(0,1fr) 2rem;gap:1.25rem;align-items:center;cursor:pointer;list-style:none;padding:1.75rem 0;transition:color .2s}
 .project-dropdown summary::-webkit-details-marker{display:none}
-.project-dropdown{--project-hover:var(--institution)}
+.project-dropdown{--project-hover:var(--artist)}
 .project-dropdown[data-hover-theme="artists"]{--project-hover:var(--artist)}
 .project-dropdown summary:hover,.project-dropdown summary:focus-visible{color:var(--project-hover)}
 .project-title{display:block;font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.8rem);line-height:1.15;margin-top:.4rem}
